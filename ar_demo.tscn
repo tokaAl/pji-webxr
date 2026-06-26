@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://baglfetqhtm7y"]
+
+[ext_resource type="Script" uid="uid://bbre8a5u1v4ms" path="res://ar_demo.gd" id="1_w6q7h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_w6q7h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w6q7h"]
+albedo_color = Color(1, 0.011764706, 0.50980395, 1)
+
+[sub_resource type="Environment" id="Environment_w6q7h"]
+
+[node name="ARDemo" type="Node3D" unique_id=981683209]
+script = ExtResource("1_w6q7h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1076921592]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=755714592]
+custom_minimum_size = Vector2(300, 80)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -15.5
+offset_right = 55.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Démarer l'AR"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=819331193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87852716, 1, 1.0843885)
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1567191862]
+
+[node name="Ancre" type="XRAnchor3D" parent="XROrigin3D" unique_id=1961155430]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1605608358]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=566148529]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -1)
+mesh = SubResource("BoxMesh_w6q7h")
+surface_material_override/0 = SubResource("StandardMaterial3D_w6q7h")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1114818394]
+environment = SubResource("Environment_w6q7h")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1549326430]
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

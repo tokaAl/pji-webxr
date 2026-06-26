@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://5sftovi1w0am"]
+
+[ext_resource type="Script" uid="uid://dc21hakg81orc" path="res://addons/ivmi-builder/core/xr/IvmiAnchorTracker.gd" id="1_dwcbt"]
+
+[node name="AnchorTracker" type="XRAnchor3D" unique_id=2094713526]
+script = ExtResource("1_dwcbt")
